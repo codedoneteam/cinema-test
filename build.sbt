@@ -11,11 +11,11 @@ ThisBuild / credentials += Credentials(Path.userHome / ".sbt" / ".credentials")
 
 ThisBuild / licenses += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html"))
 
-scalaVersion := "2.12.7"
+scalaVersion := "2.13.3"
 
 lazy val scalaTest = "3.0.8"
-lazy val cinemaFramework = "3.9.2"
-lazy val scala = "2.12.7"
+lazy val cinemaFramework = "3.10.0"
+lazy val scala = "2.13.3"
 
 
 lazy val root = (project in file("."))
@@ -45,6 +45,6 @@ lazy val root = (project in file("."))
       case x => MergeStrategy.first
     },
     libraryDependencies ++= Seq(
-      "net.codedone" % "cinema-framework_2.12" % cinemaFramework,
+      "net.codedone" % "cinema-framework_2.13" % cinemaFramework,
       "org.scalatest" %% "scalatest" % scalaTest)
   )
