@@ -1,18 +1,14 @@
 import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 
-scalaVersion := "2.13.3"
-
 lazy val scalaTest = "3.0.8"
 lazy val cinemaFramework = "3.10.0"
-lazy val scala = "2.13.3"
-
 
 lazy val root = (project in file("."))
   .settings(
     name := "cinema-framework-test",
     organization := "net.codedone",
     description := "cinema",
-    scalaVersion := scala,
+    scalaVersion := "2.13.3",
     publishMavenStyle := true,
     resolvers ++= Seq(Resolver.mavenLocal,
                       Resolver.jcenterRepo,
