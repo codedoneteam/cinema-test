@@ -1,16 +1,5 @@
 import sbtrelease.ReleasePlugin.autoImport.ReleaseTransformations._
 
-ThisBuild / organization := "net.codedone"
-ThisBuild / description := "cinema"
-
-ThisBuild / resolvers += "cakesolution" at "https://dl.bintray.com/cakesolutions/maven/"
-ThisBuild /resolvers += "Bintray API Realm" at "https://dl.bintray.com/codedonenet/cinema/"
-ThisBuild / resolvers += Resolver.mavenLocal
-ThisBuild / resolvers += Resolver.jcenterRepo
-ThisBuild / credentials += Credentials(Path.userHome / ".sbt" / ".credentials")
-
-ThisBuild / licenses += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html"))
-
 scalaVersion := "2.13.3"
 
 lazy val scalaTest = "3.0.8"
@@ -21,10 +10,19 @@ lazy val scala = "2.13.3"
 lazy val root = (project in file("."))
   .settings(
     name := "cinema-framework-test",
+    organization := "net.codedone",
+    description := "cinema",
     scalaVersion := scala,
     publishMavenStyle := true,
+    resolvers ++= Seq(Resolver.mavenLocal,
+                      Resolver.jcenterRepo,
+                      "cakesolution" at "https://dl.bintray.com/cakesolutions/maven/", 
+                      "cakesolution" at "https://dl.bintray.com/cakesolutions/maven/", 
+                      "Bintray API Realm" at "https://dl.bintray.com/codedonenet/cinema/"),
+    credentials += Credentials(Path.userHome / ".sbt" / ".credentials"),
     bintrayRepository := "cinema",
     bintrayOrganization in bintray := None,
+    licenses += ("Apache-2.0", url("https://www.apache.org/licenses/LICENSE-2.0.html")),
     releaseProcess := Seq[ReleaseStep](
       checkSnapshotDependencies,
       inquireVersions,
