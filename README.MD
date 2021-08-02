@@ -16,7 +16,7 @@ object SomeTransaction extends Transaction[One, Two] {
 class ApplyTransactionTest extends CinemaTest {
 
   "Some transaction" should "apply" in {
-    assert(execute(SomeTransaction) ? One(1) == Two(2))
+    execute(SomeTransaction) ? One(1) shouldBe Two(2)
   }
 
 }
@@ -28,7 +28,7 @@ class ApplyTransactionTest extends CinemaTest {
 class UnApplyTransactionTest extends CinemaTest {
 
   "UnApply transaction" should "complete" in {
-    assert(compensate(SomeTransaction) ? Two(2)== One(1))
+    compensate(SomeTransaction) ? Two(2) shouldBe One(1)
   }
 }
 ```
